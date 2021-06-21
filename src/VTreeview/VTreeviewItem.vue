@@ -1,7 +1,7 @@
 <template>
   <li class="tree-node" >
     <span class="toggle-icon" :class="{ 'empty-toggle': !isFolder }" :key="open">
-      <i v-if="isFolder" :class="{'fas fa-caret-down' : this.open, 'fas fa-caret-right' : !this.open}" ></i>
+      <i v-if="isFolder" :class="{'fa fa-caret-down' : this.open, 'fa fa-caret-right' : !this.open}" ></i>
     </span>    
     <span class="tree-icon" :class="{ 'empty-toggle': !icon }" :key="icon">
       <i v-if="icon" class="far" :class="icon" ></i>
