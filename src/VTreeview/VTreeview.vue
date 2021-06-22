@@ -61,6 +61,7 @@ export default {
 <style scoped>
 ul {
   position: relative;
+  padding: 0 !important;
 }
 </style>
 
