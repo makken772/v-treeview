@@ -29,7 +29,6 @@ export default {
       open: false,
       checked: null,
       edit: false,
-      mnode: {},
     }
   },
   computed: {
@@ -123,16 +122,20 @@ ul {
 }
 ul .tree-node {
   display: block;
-  padding-left: 15px;
+  padding-left: 33px;
 }
 .toggle-icon {
   display: inline-block;
-  width: 20px;
-  position: relative;
+  width: 25px;
+  position: absolute;
+  left: 0;
+  padding: 0 7.5px;
   z-index: 99;
   cursor: pointer;
 }
-
+ul .tree-children {
+    margin-left: -15px;
+}
 ul .tree-node :hover:before {
   background: rgba(190, 235, 255, 0.3);
 }
