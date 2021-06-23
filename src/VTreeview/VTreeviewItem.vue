@@ -63,16 +63,14 @@ export default {
     selected(node) {
       this.checked = null
       this.checked = this.model.id
+      console.log('dodbclick', node)
       this.$emit('selected', node)
     },
     dodbclick() {
       this.checked = null
       this.checked = this.model.id
-      if (this.isFolder) {
-        this.$emit('dodbclick', this)
-      } else {
-        this.$emit('dodbclick', this)
-      }
+      console.log('dodbclick', this)
+      this.$emit('dodbclick', this)
     },
     openTree(node) {
       this.open = true
@@ -98,6 +96,7 @@ export default {
       if (this.isFolder) {
         this.open = !this.open
       }
+      console.log('toggle', this)
       this.selected(this)
     }
   },
