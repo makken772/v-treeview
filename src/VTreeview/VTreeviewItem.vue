@@ -7,13 +7,13 @@
       <i v-if="icon" class="far" :class="icon" ></i>
     </span>
     <input type="radio" name="rad" v-model="checked" :id="model.id" :value="model.id">        
-    <label v-show="!edit" class="tree-text" :class="{ 'searched-text': isSearchText }" :for="model.id" v-on:dblclick="customMethod" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
+    <label v-show="!edit" class="tree-text" :class="{ 'searched-text': isSearchText }" :for="model.id" v-on:dblclick="dodbclick" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
     <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur">
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
         <v-treeview-item v-for="child in model.children" :key="child.id" 
         :model="child" :treeTypes="treeTypes" :openAll="openAll" @addNode="addNode"
-        @selected="selected" :searchText="searchText" @openTree="openTree">
+        @selected="selected" @dodbclick="dodbclick" :searchText="searchText" @openTree="openTree">
         </v-treeview-item>      
       </ul>
     </div>
@@ -64,8 +64,8 @@ export default {
       this.checked = this.model.id
       this.$emit('selected', node)
     },
-    customMethod(node) {
-      this.$emit('dodbclick', node)
+    dodbclick() {
+      this.$emit('dodbclick', this)
     },
     openTree(node) {
       this.open = true
