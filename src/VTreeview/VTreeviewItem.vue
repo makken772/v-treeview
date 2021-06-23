@@ -7,7 +7,7 @@
       <i v-if="icon" class="far" :class="icon" ></i>
     </span>
     <input type="radio" name="rad" v-model="checked" :id="model.id" :value="model.id">        
-    <label v-show="!edit" class="tree-text" :class="{ 'searched-text': isSearchText }" :for="model.id" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
+    <label v-show="!edit" class="tree-text" :class="{ 'searched-text': isSearchText }" :for="model.id" v-on:dblclick="customMethod" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
     <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur">
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
@@ -64,6 +64,9 @@ export default {
       this.checked = this.model.id
       this.$emit('selected', node)
     },
+    customMethod(node) {
+      this.$emit('dodbclick', node)
+    },
     openTree(node) {
       this.open = true
       this.$emit('openTree', node)
@@ -119,6 +122,9 @@ ul .tree-node {
 .toggle-icon {
   display: inline-block;
   width: 20px;
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
 }
 
 ul .tree-node :hover:before {

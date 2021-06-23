@@ -3,7 +3,7 @@
     <ul>
       <v-treeview-item class="v-treeview-item" v-for="item in value" :key="item.id" 
         :model="item" :treeTypes="treeTypes" :openAll="openAll" :searchText="searchText"
-        @selected="selected" @openTree="openTree"></v-treeview-item>            
+        @selected="selected" @dodbclick="dodbclick" @openTree="openTree"></v-treeview-item>            
     </ul>
     <v-context :show="showContext" :contextItems="contextItems" :mouseEvent="mouseEvent" @contextSelected="contextSelected" ></v-context>
   </div>
@@ -33,6 +33,9 @@ export default {
   methods: {
     selected(node) {
       this.$emit('selected', node)
+    },
+    dodbclick(node) {
+      this.$emit('dodbclick', node)
     },
     contextSelected(title) {
       this.$emit('contextSelected', title)
