@@ -28,7 +28,8 @@ export default {
     return {
       open: false,
       checked: null,
-      edit: false
+      edit: false,
+      mnode: {},
     }
   },
   computed: {
@@ -67,7 +68,11 @@ export default {
     dodbclick() {
       this.checked = null
       this.checked = this.model.id
-      this.$emit('dodbclick', this)
+      if (this.isFolder) {
+        this.$emit('dodbclick', this)
+      } else {
+        this.$emit('dodbclick', this)
+      }
     },
     openTree(node) {
       this.open = true
