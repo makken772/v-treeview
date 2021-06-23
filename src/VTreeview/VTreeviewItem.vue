@@ -63,7 +63,7 @@ export default {
     selected(node) {
       this.checked = null
       this.checked = this.model.id
-      console.log('dodbclick', node)
+      console.log('selected', node)
       this.$emit('selected', node)
     },
     dodbclick() {
