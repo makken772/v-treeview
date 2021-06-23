@@ -65,6 +65,8 @@ export default {
       this.$emit('selected', node)
     },
     dodbclick() {
+      this.checked = null
+      this.checked = this.model.id
       this.$emit('dodbclick', this)
     },
     openTree(node) {
