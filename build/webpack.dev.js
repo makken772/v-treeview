@@ -27,5 +27,4 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
 }

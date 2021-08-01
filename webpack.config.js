@@ -1,5 +1,7 @@
 function buildConfig(env) {
-    return require('./build/' + env + '.js');
+    // console.log('Goal: ', env.webpack.dist);
+    // return require('./build/' + env.webpack.dist + '.js');
+    return require('./build/webpack.dist.js');
 }
 
 module.exports = buildConfig;
